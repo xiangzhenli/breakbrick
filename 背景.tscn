@@ -1,0 +1,70 @@
+[gd_scene load_steps=13 format=3 uid="uid://bxdcdpego3nsg"]
+
+[ext_resource type="Texture2D" uid="uid://douu7x08rocpp" path="res://图片/长条形紫网.jpg" id="1_2ubn3"]
+[ext_resource type="Script" uid="uid://dw6plx8r4t387" path="res://墙/area_2d.gd" id="2_q3y7n"]
+[ext_resource type="Script" uid="uid://rciigs0ccato" path="res://墙/area_2d_2.gd" id="3_cvrm6"]
+[ext_resource type="PackedScene" uid="uid://bjdnkqfupm32j" path="res://小球/area_2d.tscn" id="4_qe5nf"]
+[ext_resource type="Script" uid="uid://cn8d6ricdieqc" path="res://墙/area_2d_4.gd" id="5_e1b72"]
+[ext_resource type="Script" uid="uid://dekjfp6voxiak" path="res://墙/area_2d_5.gd" id="6_l4typ"]
+[ext_resource type="PackedScene" uid="uid://chja1wimmvqsr" path="res://积分场景/node.tscn" id="7_r1mad"]
+[ext_resource type="PackedScene" uid="uid://c5q15578sn4i5" path="res://players/player1/player1s.tscn" id="8_e1b72"]
+[ext_resource type="PackedScene" uid="uid://cb7mfdm8k4dcq" path="res://players/player2s.tscn" id="9_l4typ"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uxyxn"]
+size = Vector2(20, 664)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hk5x"]
+size = Vector2(1167, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vex20"]
+size = Vector2(1165, 20)
+
+[node name="ColorRect" type="ColorRect"]
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1151.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 323)
+scale = Vector2(0.0060416916, 0.09194449)
+texture = ExtResource("1_2ubn3")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_q3y7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 322)
+shape = SubResource("RectangleShape2D_uxyxn")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-3, 2)
+script = ExtResource("3_cvrm6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(1154, 322)
+shape = SubResource("RectangleShape2D_uxyxn")
+
+[node name="Area2D3" parent="." instance=ExtResource("4_qe5nf")]
+position = Vector2(576, 471)
+
+[node name="Area2D4" type="Area2D" parent="."]
+script = ExtResource("5_e1b72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D4"]
+position = Vector2(573.5, 0)
+shape = SubResource("RectangleShape2D_6hk5x")
+
+[node name="Area2D5" type="Area2D" parent="."]
+script = ExtResource("6_l4typ")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D5"]
+position = Vector2(576, 647)
+shape = SubResource("RectangleShape2D_vex20")
+
+[node name="Node" parent="." instance=ExtResource("7_r1mad")]
+
+[node name="Area2D6" parent="." instance=ExtResource("8_e1b72")]
+
+[node name="Area2D7" parent="." instance=ExtResource("9_l4typ")]
